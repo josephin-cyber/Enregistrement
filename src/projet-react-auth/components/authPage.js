@@ -1,36 +1,37 @@
-import { useState } from "react";
+// import { useState } from "react";
 import countries from "./countries";
 import '../styles/auth.css';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function Auth() {
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [country, setCountry] = useState("");
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [acceptedTerms, setAcceptedTerms] = useState(false);
     
-  const history = useHistory();
+  // const history = useHistory();
+  const { register, handleSubmit,formState: { errors } } = useForm();
 
-  const handleSubmit = (event) => {
-    alert('');
-    console.log(`
-      Email: ${email}
-      Password: ${password}
-      Country: ${country}
-      Accepted Terms: ${acceptedTerms}
-    `);
-     
-  
-    event.preventDefault();
-  }
+  // const handleSubmit = (event) => {
+  //   console.log(`
+  //     Email: ${email}
+  //     Password: ${password}
+  //     Country: ${country}
+  //     Accepted Terms: ${acceptedTerms}
+  //   `);
+    
+  // }
 
   
+  const onSubmit= data => console.log(data)
 
 
 
   return (
-    <form onSubmit={handleSubmit} id="create-auth-form">
+    <form onSubmit={handleSubmit(onSubmit)} 
+    // id="create-auth-form"
+    >
       <h1>Login</h1>
 
       <label>
@@ -38,9 +39,12 @@ export default function Auth() {
         <input
           name="email"
           type="email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required />
+          // value={email}
+          // onChange={e => setEmail(e.target.value)}
+          // required 
+          {...register("email",{required:true})}
+          />
+           {errors.email && <span>Veuillez introduire le mail</span>}
       </label>
       
       <label>
@@ -48,36 +52,51 @@ export default function Auth() {
         <input
           name="password"
           type="password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required />
-      </label>
+          {...register("password",{required:true ,pattern: /[0-9]/})}
+          
+          // value={password}
+          
+          // onChange={e => setPassword(e.target.value)}
+          // required 
+          />
 
+          {errors.password && errors.password.type === "required" && <span>Veuillez introduire le mot de passe</span>}
+          {errors.password && errors.password.type === "pattern" && <span>Le mot de passe doit être uniquement des chiffres</span>}
+
+      </label>
       <label>
         Pays:
         <select
           name="country"
-          value={country}
-          onChange={e => setCountry(e.target.value)}
-          required>
+          // value={country}
+          // onChange={e => setCountry(e.target.value)}
+          // required
+          {...register("country",{required:true})}
+          >
           <option key=""></option>
           {countries.map(country => (
             <option key={country}>{country}</option>
           ))}
         </select>
+        {errors.email && <span>Veuillez introduire le mot de passe</span>} 
       </label>
 
       <label>
         <input
           name="acceptedTerms"
           type="checkbox"
-          onChange={e => setAcceptedTerms(e.target.value)}
-          required />
+          // onChange={e => setAcceptedTerms(e.target.value)}
+          // required 
+          {...register("acceptedTerms",{required:true})}
+          />
         I accept the terms of service        
       </label>
 
-      <button onClick={() =>history.push('/Formulaire')}>Submit</button>
-      <button > Reset</button>
+      <input 
+      // onClick={() =>history.push('/Formulaire')}
+      type="submit"
+     />Submit
+      {/* <button > Reset</button> */}
     </form>
   );
 }
