@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  margin-top: 1.5em;
+}
+
+.form {
+  margin: 3em;
+}
+
+.year, .month {
+  display: inline-block;
+  margin-right: 1em;
+}
+
+.buttonValidation {
+  margin-top: 1.5em;
+  text-align: right;
+}
+
+.submitBtn {
+  color: white;
+  background-color: green;
+  border-width: 0;
+}
+
+input {
+  width: 20em;
+}
+
+#cvvNumber {
+  width: 5em;
+}
+
+fieldset {
+  display: inline-block;
+}
+
+.confirmation {
+  color: green;
+  font-size: x-large;
+  margin-bottom: 1em;
+}
+
+.confirm {
+  text-align: center;
+  padding: 2em;
+}
+
+h5 {
+  font-size: medium;
+}
+
+.mt-1 {
+  margin-top: 1em;
+}
