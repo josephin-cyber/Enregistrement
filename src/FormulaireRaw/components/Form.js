@@ -8,7 +8,7 @@ return(
 
 <div style={{paddingTop : 60}}>
 
-<h1 className="well" style={{textAlign:'center'}}>Formulaire mode de paiement</h1>
+<h1 className="well" style={{textAlign:'center'}}>Formulaire mode de paiement1</h1>
 
   <FormSample/>
 
