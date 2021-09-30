@@ -1,6 +1,6 @@
 import Myform from './form2';
 import MyDatepic from './Datepicker';
-
+import FormSample from './Form3';
 
 const Formulaire = ()=>{
 
@@ -10,8 +10,7 @@ return(
 
 <h1 className="well" style={{textAlign:'center'}}>Formulaire mode de paiement</h1>
 
-  <Myform/>
-  <MyDatepic/>
+  <FormSample/>
 
 </div>
   
@@ -20,3 +19,6 @@ return(
 }
 
 export default Formulaire;
+
+// <Myform/>
+//  <MyDatepic/>
