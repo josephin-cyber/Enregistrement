@@ -4,6 +4,7 @@ import '../styles/auth.css';
 import { useHistory } from "react-router-dom";
 
 export default function Auth() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("");
@@ -51,10 +52,6 @@ export default function Auth() {
           onChange={e => setPassword(e.target.value)}
           required />
       </label>
-   
-
-
-
 
       <label>
         Pays:

@@ -1,89 +1,83 @@
-import { Form, Input, TextArea, Button, Select, Segment } from 'semantic-ui-react'
+import {
+  Form,
+  Input,
+  TextArea,
+  Button,
+  Select,
+} from "semantic-ui-react";
 //import Mydate from './Datepicker'
 import { useHistory } from "react-router-dom";
-
+import { useState } from "react";
 
 const payOptions = [
-    { key: 'm', text: 'MasterCard', value: 'mastercard' },
-    { key: 'v', text: 'VisaCard', value: 'visacard' },
-    { key: 'w', text: 'WesternUnion', value: 'western' },
-    { key: 'p', text: 'PayPal', value: 'paypal' },
-  ]
+  { key: "m", text: "MasterCard", value: "mastercard" },
+  { key: "v", text: "VisaCard", value: "visacard" },
+  { key: "w", text: "WesternUnion", value: "western" },
+  { key: "p", text: "PayPal", value: "paypal" },
+];
 
-
-const Form2 =() =>{
-
+const Myform = () => {
   const history = useHistory();
-
-
   return (
-
-<Segment inverted  style={{margin:50}}>
-    <Form  inverted>
-  
-      <Form.Group widths='equal'>
-  
-      <Form.Field
+    // <Segment inverted>
+    <Form inverted style={{ width: "100%", backgroundColor: "black" }}>
+      <Form.Group widths="equal">
+        <Form.Field
           control={Select}
           options={payOptions}
-          label={{ children: 'MODE DE PAIEMENT', htmlFor: 'form-select-control-gender' }}
-          placeholder='Selectionner votre mode de paiement'
+          label={{
+            children: "MODE DE PAIEMENT",
+            htmlFor: "form-select-control-gender",
+          }}
+          placeholder="Selectionner votre mode de paiement"
           search
-          searchInput={{ id: 'form-select-control-pay' }}
+          searchInput={{ id: "form-select-control-pay" }}
         />
-       <Form.Field
-          id='form-input-control-date'
-          control={Input}
-          label='Numero de la carte '
-          placeholder='Entrer le numero de votre carte'
-        />
-  
-          <Form.Field
-          id='form-input-control-date'
-          control={Input}
-          label='Code CVV'
-          placeholder='Entrer votre code de securité'
-          />
-  
         <Form.Field
-          id='form-input-control-date'
+          id="form-input-control-date"
           control={Input}
-          label='Date expiration cart '
-          placeholder='Entrer la date'
+          label="Numero de la carte "
+          placeholder="Entrer le numero de votre carte"
         />
-  
+
+        <Form.Field
+          id="form-input-control-date"
+          control={Input}
+          label="Code CVV"
+          placeholder="Entrer votre code de securité"
+        />
+
+        <Form.Field
+          id="form-input-control-date"
+          control={Input}
+          label="Date expiration cart "
+          placeholder="Entrer la date"
+        />
       </Form.Group>
-  
+
       <Form.Field
-        id='form-textarea-control-opinion'
+        id="form-textarea-control-opinion"
         control={TextArea}
-        label='Addresse de l`entrepot'
-        placeholder='Addresse complet de l`entrepot'
+        label="Addresse de l`entrepot"
+        placeholder="Addresse complet de l`entrepot"
       />
-  
+
       <Form.Field
-        id='form-input-control-error-email'
+        id="form-input-control-error-email"
         control={Input}
-        label='Email'
-        placeholder='ex:joelsyasi@gmail.com'
-  
+        label="Email"
+        placeholder="ex:joelsyasi@gmail.com"
       />
-   
-  
-  
+
       <Form.Field
-        id='form-button-control-public'
+        id="form-button-control-public"
         control={Button}
-        content='Envoyer'
-        onClick={() =>history.push('/Confirmation')}
+        content="Envoyer"
+        onClick={() => history.push("/Confirmation")}
       />
-  
     </Form>
-    </Segment>
-  
+    // </Segment>
   );
+};
 
-}
-
-  
-export default Form2;
+export default Myform;
